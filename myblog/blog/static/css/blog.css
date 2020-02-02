@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/* h1내부에 a가 들어가 있는 경우 link라는 문자열의 색을 지정가능 */
+/* https://www.w3schools.com/colors/colors_picker.asp 에서 색깔코드 집어오기*/
+
+h1 a { 
+	color: #ff00aa; 
+	font-family: 'Black Han Sans';
+	}
+
+h2 a {
+	color: #dd99ff;
+	font-family: 'Sunflower';
+	}
+
+/* 오/왼 30픽셀 띄어라! */
+body { 
+	padding-left: 30px;
+	padding-right: 30px;
+	font-family: ''Sunflower';
+	}
+	
+/* page-header인 애한테만 적용해!, class에 적용하려면 .꼭 써주기 */
+.page-header {
+	background-color: #ff8080;
+	margin-top: 0;
+	/*내부에서 여백*/
+	padding: 20px 20px 20px 40px;
+}
+
+/* page-header안에있는 h1에 대한 h1 a에 대한 것을 설정, 방문했어도 똑같이 적용 활성(마우스 가져다 놓았을 때)되도 똑같이 적용 */
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+	color: #ffffff;
+	font-size: 36pt;
+	/*취소선 같은 데코들! (line-through), html 안건들이고 수정가능, 안적어줘도 됨 */
+	text-decoration: none;
+}
+
+.content {
+	margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Sunflower';
+}
+
+.date {
+	color: #828282;
+}
+
+.save {
+	float: right;
+}
+
+.post-form textarea, .post_form input {
+	width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+	color: #ffffff;
+	float: right;
+	font-size: 26pt;
+	margin-right: 20px;
+}
+
+.post {
+	
+    margin-bottom: 70px;
+}
+
+.post h1 a, .post h1 a:visited {
+	font-family: 'Sunflower';
+    color: #000000;
+}
+

@@ -1,0 +1,58 @@
+{% extends 'blog/base.html' %}
+
+
+<!-- 
+<div class = "postlist"> -->
+	<!-- 이탤릭체 태그는 em or i, Bold체 태그는 strong or b 
+		p tag는 문단표시, 자동으로 줄 바꿈-->
+		<!-- 
+		<h1>템플릿 추가 완료</h1>
+		<p><i><strong>Hi there!</strong></i></p>
+		<p><em><b>It works!</b></em></p>
+		-->
+		
+	
+		<!-- |linebreaksbr는 웹사이트에 엔터키 반영, 문단으로 나뉨, p태그는 개행태그 -->
+		<!-- 
+		{%for post in posts%}
+			<div class="post">
+				<b><h2><a href="">{{post.title}}</a></h2></b><br/>
+				<p>{{post.text|linebreaksbr}}</p>
+				<p>{{post.published_date}}</p><br/>
+			</div>
+		{%endfor%}
+		
+		<div>
+			<h2><a href="">My first post</a></h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis nisi leo, eget consectetur est dignissim vitae. Integer sit amet. </p>
+			<p>published: 17.01.2020, 22:58</p>
+		</div>
+		
+		<div>
+			<h2><a href="">My second post</a></h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis nisi leo, eget consectetur est dignissim vitae. Integer sit amet. </p>
+			<p>published: 17.01.2020, 22:58</p>
+		</div>
+</div>
+-->
+	
+	{% block content %}
+	<!-- <div class="content container">
+	    <div class="row">
+	        <div class="col-md-8"> -->
+	            {% for post in posts %}
+	                <div class="post">
+	                    <div class="date">
+	                        <p>published: {{ post.published_date }}</p>
+	                    </div>
+	                    <!-- post_detail이라는 이름의 url에서 pk부분에는 post.pk를 집어넣음 -->
+	                    <h1><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+	                    <p>{{ post.text|linebreaksbr }}</p>
+	                </div>
+	            {% endfor %}
+	        <!-- </div>
+	    </div>
+	</div> -->
+	{% endblock %}
+	
+	

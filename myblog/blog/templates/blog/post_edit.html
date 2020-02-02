@@ -1,0 +1,28 @@
+<!-- 이름 띠가 나타나므로 base파일로 확장 -->
+{% extends 'blog/base.html'%}
+
+<!-- 기본적으로 PostForm 양식을 따름, html에서 수정할 양식이 많지 않음 -->
+
+{% block content%}
+	<h1>New Post</h1>
+	<!-- forms.py의 양식을 이용해 폼을 작성할  때는 action="목적지" 속성은 굳이 입력하지 않아도 된다.-->
+	<!-- method는 적어줬지만, 이때 method는 post방식(전송방식 암호화 -> get으로 들어오는 건 받으면 안됨), action은 빠져도 됨! 
+	PostForm에서 목적지와 어떤 것을 작성할지 모두 설정해뒀음 -->
+	<form method='post' class='post-form'>
+		<!-- post방식일 때 반드시 csrf_token을 적어준다. -->
+		{% csrf_token %}
+		<!-- 양식을 담은 변수이름(view에서 쓴 변수명)이 form이므로 form.as_p 
+		다른 이름이라면 양식명.as_p 라고 적는다. -->
+		{{form.as_p}}
+		
+		<!-- 버튼은 작성이 완료되었을 때 자료 제출버튼으로 사용할 것이므로 type=submit, 
+		<button>의 여닫는 부분 사이에 적은 문자는 그대로 버튼에 새겨진다.
+		class명은 지금 부트스트랩에 있는 것 안적어줘도 됨 -->
+		<button type='submit' class='save btn btn-default'>
+		SAVE
+		</button>
+	</form>
+
+
+
+{% endblock %}

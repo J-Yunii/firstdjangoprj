@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!-- base파일은 항상 띄워지는 파일, %block content%로 감싸서 갈아끼울 내용을 설정!! -->
+<!-- head 는 문서 정보를 가지고 있지만, 웹 페이지에서 보이지 않는 정보들을 담는 영역입니다. -->
+<!-- 정적파일: CSS와 이미지파일, 컨텐츠가 접속때마다 동일
+	  동적파일: 자바스크립트 -->
+	  
+<!-- static 패키지 내부의 것들을 쓰겠다는 의미! 반드시 적어주기!!-->
+{% load static %}
+
+<head>
+<meta charset="UTF-8">
+<!-- title내부 내용은 tab부분에 띄어줌 -->
+<title>장고 blog 연습</title>
+
+<!-- CSS - 부트스트랩 :완성된 CSS 프레임워크 사이트
+	인터넷에 있는 파일을 연결 -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<!-- 앞의 rel은 고정문법, 내가 만든 정적파일을 로딩! 이 코드줄은 맨밑에 적어주기, 앞의 코드들 명령에 덮어씌우기 위해서 -->
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+<!-- font 파일 link -->
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Black+Han+Sans|Josefin+Sans|Nanum+Gothic+Coding|Indie+Flower|Lobster|Lobster+Two|Sigmar+One|Stylish|Sunflower:300|Zhi+Mang+Xing&display=swap" rel="stylesheet"> 
+
+</head>
+<!-- body 란 웹 페이지에 직접적으로 보이는 내용이 들어갑니다. 웹 페이지의 내용은 모두 이 body태그안에 들어갑니다. -->
+<body>
+	
+<!-- div는 큼직하게 단위를 나눌 때 씀, p랑 비슷한 역할 -->
+<!-- div는 class개념, css파일에서 적용할 때 구분하기 위해서 class이름 적어줌 page-header일 때만 적용해!라는 의미 -->
+	<div class ="page-header">
+		<!-- top-menu와 glyphicon은 부트스트랩 내부에 있는 것 따로 공부하기, appname 적어주기 'appname:pathname' -->
+		<a href="{% url 'blog:post_new' %}" class="top-menu">
+			<span class = 'glyphicon glyphicon-plus'></span>
+		</a>
+		<h1><a href="">Jung Yun's Blog</a></h1><br>
+		
+	</div>
+
+	
+	
+	<div class="content container">
+	    <div class="row">
+	        <div class="col-md-8">
+	        	<!-- 모든 page에서 페이지 타이틀은 유지되도록, 내용만 갈아끼우도록 내부만 바뀌도록 함(코드를 단순화 할 수 있음)-->
+	        	<!-- block content는 구멍역할 -->
+	            {% block content %}
+            	{% endblock %}
+	        </div>
+	    </div>
+	</div>
+	
+	
+	
+</body>
+</html>
